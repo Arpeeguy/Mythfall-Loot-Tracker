@@ -1,0 +1,17 @@
+{
+  "name": "mythfall-loot-tracker",
+  "version": "1.0.0",
+  "description": "Discord bot for logging loot drops from Mythfall dungeons",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "deploy": "node deploy-commands.js"
+  },
+  "keywords": [],
+  "author": "Avi",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.13.0",
+    "dotenv": "^16.3.1"
+  }
+}
