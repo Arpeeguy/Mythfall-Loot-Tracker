@@ -11,10 +11,16 @@ module.exports = {
       option.setName('item')
         .setDescription('The item you received (case-sensitive)')
         .setRequired(true)
+    )
+    .addIntegerOption(option =>
+      option.setName('quantity')
+        .setDescription('How many times you received this item')
+        .setRequired(false)
     ),
 
   async execute(interaction) {
     const item = interaction.options.getString('item');
+    const quantity = interaction.options.getInteger('quantity') || 1;
     const dungeon = 'piratecove';
 
     if (!validDrops[dungeon].includes(item)) {
@@ -27,11 +33,13 @@ module.exports = {
 
     const user = interaction.user.tag;
     const timestamp = new Date().toISOString();
-    const logEntry = `${timestamp} | ${user} | ${dungeon} | ${item}\n`;
-
     const logPath = path.join(__dirname, '..', 'data', 'drops.log');
-    fs.appendFileSync(logPath, logEntry);
 
-    await interaction.reply(`✅ Logged drop: **${item}** from Pirate Cove`);
+    for (let i = 0; i < quantity; i++) {
+      const logEntry = `${timestamp} | ${user} | ${dungeon} | ${item}\n`;
+      fs.appendFileSync(logPath, logEntry);
+    }
+
+    await interaction.reply(`✅ Logged ${quantity} drop${quantity > 1 ? 's' : ''}: **${item}** from Pirate Cove`);
   }
 };
