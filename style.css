@@ -1,0 +1,68 @@
+/* Dark theme styling for Mythfall Loot Tracker */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+header {
+  padding: 2rem;
+  text-align: center;
+  background-color: #1f1f1f;
+  border-bottom: 1px solid #333;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #00bcd4;
+}
+
+header p {
+  font-size: 1rem;
+  color: #aaa;
+}
+
+main {
+  padding: 2rem;
+}
+
+.dungeon {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.dungeon h2 {
+  margin-top: 0;
+  color: #ff9800;
+  font-size: 1.5rem;
+}
+
+.dungeon ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.dungeon li {
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #333;
+}
+
+.rate {
+  color: #90caf9;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid #333;
+  background-color: #1f1f1f;
+}
