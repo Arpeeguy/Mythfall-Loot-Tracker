@@ -248,6 +248,13 @@
         let rate = "5%";
         if (drop.toLowerCase().includes("egg")) rate = "3%";
         if (drop.toLowerCase().includes("pg")) rate = "2%";
-        list.innerHTML += `<li>${drop} <span class="rate">— ${rate}</span></li>`;
+           list.innerHTML += `<li>${drop} <span class="rate">— ${rate}</span></li>`;
       });
+
+      section.appendChild(list);
+      container.appendChild(section);
+    }
+  </script>
+</body>
+</html>
 
