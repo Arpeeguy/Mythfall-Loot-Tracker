@@ -1,61 +1,72 @@
-require('dotenv').config();
+const { Client, GatewayIntentBits, Collection, Events } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
-const { 
-  Client, 
-  GatewayIntentBits, 
-  ActivityType, 
-  Events 
-} = require('discord.js');
+require('dotenv').config();
 
 const client = new Client({
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent
-  ],
+  intents: [GatewayIntentBits.Guilds]
 });
 
-// Load all slash commands from /commands
-client.commands = new Map();
-const commandFiles = fs.readdirSync(path.join(__dirname, 'commands')).filter(file => file.endsWith('.js'));
+client.commands = new Collection();
+
+// Load command files
+const commandsPath = path.join(__dirname, 'commands');
+const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+
 for (const file of commandFiles) {
-  const command = require(`./commands/${file}`);
-  client.commands.set(command.data.name, command);
+  const filePath = path.join(commandsPath, file);
+  const command = require(filePath);
+  if ('data' in command && 'execute' in command) {
+    client.commands.set(command.data.name, command);
+  } else {
+    console.warn(`⚠️ Command at ${filePath} is missing "data" or "execute"`);
+  }
 }
 
-// Bot is ready
-client.once(Events.ClientReady, () => {
+// Log when bot is ready
+client.once(Events.ClientReady, async () => {
   console.log(`✅ Logged in as ${client.user.tag}`);
-  client.user.setPresence({
-    status: 'online',
-    activities: [{ name: 'Tracking loot', type: ActivityType.Watching }]
-  });
+  console.log(`🆔 Application ID: ${client.application.id}`);
 });
 
-// Fallback text command
-client.on(Events.MessageCreate, (message) => {
-  if (message.content === '/logdrop') {
-    message.reply('🧭 Loot drop logged!');
-  }
-});
-
-// Slash command handler
+// Handle interactions
 client.on(Events.InteractionCreate, async interaction => {
+  console.log('⚡ Interaction received:', {
+    type: interaction.type,
+    commandName: interaction.commandName
+  });
+
   if (!interaction.isChatInputCommand()) return;
 
   const command = client.commands.get(interaction.commandName);
-  if (!command) return;
+  if (!command) {
+    console.error(`❌ No command found for ${interaction.commandName}`);
+    try {
+      await interaction.reply({ content: 'Command not found.', ephemeral: true });
+    } catch (err) {
+      console.error('❌ Failed to reply to unknown command:', err);
+    }
+    return;
+  }
 
   try {
     await command.execute(interaction);
   } catch (error) {
-    console.error(error);
-    await interaction.reply({ 
-      content: '❌ There was an error executing that command.', 
-      ephemeral: true 
-    });
+    console.error(`❌ Error executing ${interaction.commandName}:`, error);
+    try {
+      if (interaction.replied || interaction.deferred) {
+        await interaction.followUp({ content: 'There was an error executing this command.', ephemeral: true });
+      } else {
+        await interaction.reply({ content: 'There was an error executing this command.', ephemeral: true });
+      }
+    } catch (err) {
+      console.error('❌ Failed to reply to error:', err);
+    }
   }
 });
 
+// Heartbeat to confirm container stays alive
+setInterval(() => console.log('💓 Bot heartbeat'), 30000);
+
+// Login
 client.login(process.env.DISCORD_TOKEN);
