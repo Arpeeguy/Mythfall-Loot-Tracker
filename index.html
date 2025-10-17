@@ -235,7 +235,8 @@
 
     const container = document.getElementById("dungeons");
 
-    for (const [dungeon, drops] of Object.entries(lootData)) {
+    for (const [dungeon, drops] of Object.entries(lootData).reverse()) {
+
       const section = document.createElement("section");
       section.className = "dungeon";
 
