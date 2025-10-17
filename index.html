@@ -55,6 +55,7 @@
 
     fetch('data/piratecove.json')
       .then(response => response.json())
+      .catch(() => ({})) // fallback if file missing or invalid
       .then(pirateStats => {
         const container = document.getElementById("dungeons");
 
