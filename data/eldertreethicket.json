@@ -2,9 +2,9 @@
   "dungeon": "Eldertree Thicket",
   "totalDrops": 85,
   "items": {
-    "Elderwood": {
-      "count": 23,
-      "rate": 27.1
+    "Shard": {
+      "count": 24,
+      "rate": 28.2
     },
     "Elderwood Book (Pg 1)": {
       "count": 12,
@@ -33,10 +33,6 @@
     "Rootspike Shuriken": {
       "count": 4,
       "rate": 4.7
-    },
-    "Shard": {
-      "count": 1,
-      "rate": 1.2
     }
   }
 }
