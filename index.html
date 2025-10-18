@@ -40,9 +40,6 @@
         "Tidal Egg",
         "Dance Notes (Pg 1)",
         "Dance Notes (Pg 2)"
-      ],
-      "Future Dungeons": [
-        "Coming Soon..."
       ]
     };
 
@@ -63,23 +60,24 @@
         const list = document.createElement("ul");
         drops.forEach(drop => {
           let statText = "";
+          const normalizedDrop = drop.trim().replace(/’/g, "'");
 
           if (dungeon === "Pirate Cove") {
-            if (pirateStats[drop]) {
-              const { count, rate: actualRate } = pirateStats[drop];
+            const stat = pirateStats[normalizedDrop];
+            if (stat) {
+              const { count, rate: actualRate } = stat;
               statText = `Logged: ${count} (${actualRate}%)`;
             } else {
               statText = `Logged: 0 (0%) — unlogged`;
             }
           } else if (dungeon === "Coolcrab Grotto") {
-            if (crabStats[drop]) {
-              const { count, rate: actualRate } = crabStats[drop];
+            const stat = crabStats[normalizedDrop];
+            if (stat) {
+              const { count, rate: actualRate } = stat;
               statText = `Logged: ${count} (${actualRate}%)`;
             } else {
               statText = `Logged: 0 (0%) — unlogged`;
             }
-          } else {
-            statText = `— placeholder`;
           }
 
           list.innerHTML += `<li>${drop} <span class="rate">${statText}</span></li>`;
