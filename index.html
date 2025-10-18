@@ -70,9 +70,11 @@
 
           drops.forEach(drop => {
             const normalizedDrop = normalize(drop);
-            const stat = Object.entries(stats.items).find(
-              ([key]) => normalize(key) === normalizedDrop
-            )?.[1];
+            const stat = stats.items
+              ? Object.entries(stats.items).find(
+                  ([key]) => normalize(key) === normalizedDrop
+                )?.[1]
+              : null;
 
             let statText = "";
 
