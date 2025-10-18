@@ -41,6 +41,7 @@
       "Dance Notes (Pg 1)",
       "Dance Notes (Pg 2)"
     ]
+    // Future dungeons can be added here
   };
 
   const normalize = str =>
@@ -48,7 +49,13 @@
 
   const container = document.getElementById("dungeons");
 
-  for (const [dungeon, drops] of Object.entries(lootData)) {
+  const dungeonOrder = ["Pirate Cove", "Coolcrab Grotto"];
+  const allDungeons = Object.keys(lootData);
+  const remaining = allDungeons.filter(d => !dungeonOrder.includes(d)).sort();
+  const orderedDungeons = [...dungeonOrder, ...remaining];
+
+  orderedDungeons.forEach(dungeon => {
+    const drops = lootData[dungeon];
     const jsonFile = `data/${dungeon.toLowerCase().replace(/ /g, "")}.json`;
 
     fetch(jsonFile)
@@ -68,7 +75,6 @@
 
         const list = document.createElement("ul");
 
-        // Build a normalized lookup map
         const normalizedStats = {};
         if (stats.items) {
           for (const [key, value] of Object.entries(stats.items)) {
@@ -109,7 +115,7 @@
         errorMsg.textContent = `Failed to load ${dungeon} stats.`;
         container.appendChild(errorMsg);
       });
-  }
+  });
 </script>
 </body>
 </html>
