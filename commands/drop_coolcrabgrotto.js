@@ -1,27 +1,24 @@
+const { SlashCommandBuilder } = require("discord.js");
 const fs = require("fs");
 const path = require("path");
 
 module.exports = {
-  data: {
-    name: "drop_coolcrabgrotto",
-    description: "Log a drop from Coolcrab Grotto",
-    options: [
-      {
-        name: "item",
-        type: 3, // STRING
-        description: "The item that dropped",
-        required: true,
-        choices: [
+  data: new SlashCommandBuilder()
+    .setName("drop_coolcrabgrotto")
+    .setDescription("Log a drop from Coolcrab Grotto")
+    .addStringOption(option =>
+      option.setName("item")
+        .setDescription("The item that dropped")
+        .setRequired(true)
+        .addChoices(
           { name: "Coolcrab Shades", value: "Coolcrab Shades" },
           { name: "Dancing Boots", value: "Dancing Boots" },
           { name: "Wedding Band", value: "Wedding Band" },
           { name: "Tidal Egg", value: "Tidal Egg" },
           { name: "Dance Notes (Pg 1)", value: "Dance Notes (Pg 1)" },
           { name: "Dance Notes (Pg 2)", value: "Dance Notes (Pg 2)" }
-        ]
-      }
-    ]
-  },
+        )
+    ),
   async execute(interaction) {
     const drop = interaction.options.getString("item");
     const user = interaction.user.username;
