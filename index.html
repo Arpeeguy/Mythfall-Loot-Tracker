@@ -40,6 +40,15 @@
       "Tidal Egg",
       "Dance Notes (Pg 1)",
       "Dance Notes (Pg 2)"
+    ],
+    "Luminous Cavern": [
+      "Luminescent Egg",
+      "Jellyhead Cap",
+      "White Jelly",
+      "Jelly Boots",
+      "Jelly Bow",
+      "Luminous Tome (Pg 1)",
+      "Luminous Tome (Pg 2)"
     ]
     // Future dungeons can be added here
   };
@@ -49,10 +58,10 @@
 
   const container = document.getElementById("dungeons");
 
-  const dungeonOrder = ["Pirate Cove", "Coolcrab Grotto"];
+  const fixedOrder = ["Pirate Cove", "Coolcrab Grotto", "Luminous Cavern"];
   const allDungeons = Object.keys(lootData);
-  const remaining = allDungeons.filter(d => !dungeonOrder.includes(d)).sort();
-  const orderedDungeons = [...dungeonOrder, ...remaining];
+  const extras = allDungeons.filter(d => !fixedOrder.includes(d)).sort();
+  const orderedDungeons = [...fixedOrder, ...extras];
 
   orderedDungeons.forEach(dungeon => {
     const drops = lootData[dungeon];
@@ -64,8 +73,6 @@
         return res.json();
       })
       .then(stats => {
-        console.log(`${dungeon} Stats:`, stats);
-
         const section = document.createElement("section");
         section.className = "dungeon";
 
@@ -80,10 +87,7 @@
           for (const [key, value] of Object.entries(stats.items)) {
             const normalizedKey = normalize(key);
             normalizedStats[normalizedKey] = value;
-            console.log(`Normalized key: "${normalizedKey}"`);
           }
-        } else {
-          console.warn(`Missing 'items' in ${dungeon} stats`);
         }
 
         drops.forEach(drop => {
@@ -97,7 +101,6 @@
             statText = `Logged: ${count} (${rate}%)`;
           } else {
             statText = `Logged: 0 (0%) — unlogged`;
-            console.warn(`Missing stat for "${normalizedDrop}"`);
           }
 
           const item = document.createElement("li");
@@ -109,7 +112,6 @@
         container.appendChild(section);
       })
       .catch(err => {
-        console.error(`Error loading ${dungeon} stats:`, err);
         const errorMsg = document.createElement("p");
         errorMsg.style.color = "red";
         errorMsg.textContent = `Failed to load ${dungeon} stats.`;
