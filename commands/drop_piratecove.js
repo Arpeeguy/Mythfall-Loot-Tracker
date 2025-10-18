@@ -21,14 +21,20 @@ module.exports = {
   async execute(interaction) {
     const item = interaction.options.getString('item');
     const quantity = interaction.options.getInteger('quantity') || 1;
-    const dungeon = 'piratecove';
+    const dungeon = 'Pirate Cove';
 
-    if (!validDrops[dungeon].includes(item)) {
-      await interaction.reply({
-        content: `❌ "${item}" is not a valid drop from Pirate Cove.\n\nValid items:\n${validDrops[dungeon].join(', ')}`,
+    if (!validDrops[dungeon]) {
+      return interaction.reply({
+        content: `❌ Dungeon "${dungeon}" not found in validDrops.`,
         ephemeral: true
       });
-      return;
+    }
+
+    if (!validDrops[dungeon].includes(item)) {
+      return interaction.reply({
+        content: `❌ "${item}" is not a valid drop from ${dungeon}.\n\nValid items:\n${validDrops[dungeon].join(', ')}`,
+        ephemeral: true
+      });
     }
 
     const user = interaction.user.tag;
@@ -40,6 +46,6 @@ module.exports = {
       fs.appendFileSync(logPath, logEntry);
     }
 
-    await interaction.reply(`✅ Logged ${quantity} drop${quantity > 1 ? 's' : ''}: **${item}** from Pirate Cove`);
+    await interaction.reply(`✅ Logged ${quantity} drop${quantity > 1 ? 's' : ''}: **${item}** from ${dungeon}`);
   }
 };
