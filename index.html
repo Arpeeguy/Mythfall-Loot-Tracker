@@ -9,7 +9,7 @@
 <body>
   <header>
     <h1>🧭 Mythfall Loot Tracker</h1>
-    <p>View dungeon drops and static drop rates — always available, even when the bot is offline.</p>
+    <p>View dungeon drops and live drop rates — always available, even when the bot is offline.</p>
   </header>
 
   <main>
@@ -24,24 +24,6 @@
 
   <script>
     const lootData = {
-      "Necromancer's Garden": [/* ... */],
-      "Chamber of the Awakened": [/* ... */],
-      "Volcanic Core": [/* ... */],
-      "Succubus Lair": [/* ... */],
-      "Volcanic Mines": [/* ... */],
-      "The Hanging Temple": [/* ... */],
-      "Grug Pit": [/* ... */],
-      "Scorpion Pit": [/* ... */],
-      "Temple of Anubis": [/* ... */],
-      "Alivarg's Tower": [/* ... */],
-      "Gorthan's Labyrinth": [/* ... */],
-      "Ancient Ruins": [/* ... */],
-      "Lorendel's Garden": [/* ... */],
-      "Goopy Grove": [/* ... */],
-      "Stoneheart Forest": [/* ... */],
-      "Eldertree Thicket": [/* ... */],
-      "Luminous Cavern": [/* ... */],
-      "Coolcrab Grotto": [/* ... */],
       "Pirate Cove": [
         "Cutlass",
         "Blunderbuss",
@@ -53,13 +35,20 @@
       ]
     };
 
+    const normalize = str =>
+      str.trim().replace(/’/g, "'").replace(/‘/g, "'").replace(/“|”/g, '"');
+
     fetch('data/piratecove.json')
-      .then(response => response.json())
-      .catch(() => ({})) // fallback if file missing or invalid
+      .then(res => {
+        if (!res.ok) throw new Error("Failed to load piratecove.json");
+        return res.json();
+      })
       .then(pirateStats => {
+        console.log("Pirate Stats:", pirateStats);
+
         const container = document.getElementById("dungeons");
 
-        for (const [dungeon, drops] of Object.entries(lootData).reverse()) {
+        for (const [dungeon, drops] of Object.entries(lootData)) {
           const section = document.createElement("section");
           section.className = "dungeon";
 
@@ -68,29 +57,33 @@
           section.appendChild(title);
 
           const list = document.createElement("ul");
+
           drops.forEach(drop => {
+            const normalizedDrop = normalize(drop);
+            const stat = pirateStats[normalizedDrop];
             let statText = "";
 
-            if (dungeon === "Pirate Cove") {
-              if (pirateStats[drop]) {
-                const { count, rate: actualRate } = pirateStats[drop];
-                statText = `Logged: ${count} (${actualRate}%)`;
-              } else {
-                statText = `Logged: 0 (0%) — unlogged`;
-              }
+            if (stat) {
+              const { count, rate } = stat;
+              statText = `Logged: ${count} (${rate}%)`;
             } else {
-              let rate = "5%";
-              if (drop.toLowerCase().includes("egg")) rate = "3%";
-              if (drop.toLowerCase().includes("pg")) rate = "2%";
-              statText = `— ${rate}`;
+              statText = `Logged: 0 (0%) — unlogged`;
+              console.warn(`Missing stat for "${normalizedDrop}"`);
             }
 
-            list.innerHTML += `<li>${drop} <span class="rate">${statText}</span></li>`;
+            const item = document.createElement("li");
+            item.innerHTML = `${drop} <span class="rate">${statText}</span>`;
+            list.appendChild(item);
           });
 
           section.appendChild(list);
           container.appendChild(section);
         }
+      })
+      .catch(err => {
+        console.error("Error loading Pirate Cove stats:", err);
+        const container = document.getElementById("dungeons");
+        container.innerHTML = `<p style="color:red;">Failed to load Pirate Cove stats. Check console for details.</p>`;
       });
   </script>
 </body>
