@@ -1,0 +1,26 @@
+{
+  "dungeon": "Coolcrab Grotto",
+  "totalDrops": 43,
+  "items": {
+    "Coolcrab Shades": {
+      "count": 12,
+      "rate": 27.9
+    },
+    "Dancing Boots": {
+      "count": 9,
+      "rate": 20.9
+    },
+    "Dance Notes (Pg 1)": {
+      "count": 9,
+      "rate": 20.9
+    },
+    "Dance Notes (Pg 2)": {
+      "count": 9,
+      "rate": 20.9
+    },
+    "Wedding Band": {
+      "count": 4,
+      "rate": 9.3
+    }
+  }
+}
