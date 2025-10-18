@@ -1,30 +1,30 @@
 {
   "Cutlass": {
     "count": 10,
-    "rate": 24.4
+    "rate": 25
   },
   "Blunderbuss": {
     "count": 11,
-    "rate": 26.8
+    "rate": 27.5
   },
   "Captain's Hat": {
     "count": 4,
-    "rate": 9.8
+    "rate": 10
   },
   "Gunpowder Egg": {
     "count": 3,
-    "rate": 7.3
+    "rate": 7.5
   },
   "Pirate Diary (Pg 1)": {
     "count": 4,
-    "rate": 9.8
+    "rate": 10
   },
   "Captain's Cape": {
-    "count": 2,
-    "rate": 4.9
+    "count": 1,
+    "rate": 2.5
   },
   "Pirate Diary (Pg 2)": {
     "count": 7,
-    "rate": 17.1
+    "rate": 17.5
   }
 }
