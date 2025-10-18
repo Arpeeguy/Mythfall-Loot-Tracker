@@ -43,10 +43,16 @@
       ]
     };
 
+    const normalize = str =>
+      str.trim().replace(/’/g, "'").replace(/‘/g, "'").replace(/“|”/g, '"');
+
     Promise.all([
       fetch('data/piratecove.json').then(res => res.json()).catch(() => ({})),
       fetch('data/coolcrabgrotto.json').then(res => res.json()).catch(() => ({}))
     ]).then(([pirateStats, crabStats]) => {
+      console.log("Pirate Stats:", pirateStats);
+      console.log("Coolcrab Stats:", crabStats);
+
       const container = document.getElementById("dungeons");
 
       for (const [dungeon, drops] of Object.entries(lootData)) {
@@ -59,36 +65,22 @@
 
         const list = document.createElement("ul");
         drops.forEach(drop => {
-          let statText = "";
-          const normalize = str => str.trim().replace(/’/g, "'").replace(/‘/g, "'").replace(/“|”/g, '"');
           const normalizedDrop = normalize(drop);
-
+          let statText = "";
+          let stat = null;
 
           if (dungeon === "Pirate Cove") {
-            const stat = pirateStats[normalizedDrop];
-            if (stat) {
-              const { count, rate: actualRate } = stat;
-              statText = `Logged: ${count} (${actualRate}%)`;
-            } else {
-              statText = `Logged: 0 (0%) — unlogged`;
-            }
+            stat = pirateStats[normalizedDrop];
           } else if (dungeon === "Coolcrab Grotto") {
-            const stat = crabStats[normalizedDrop];
-            if (stat) {
-              const { count, rate: actualRate } = stat;
-              statText = `Logged: ${count} (${actualRate}%)`;
-            } else {
-              statText = `Logged: 0 (0%) — unlogged`;
-            }
+            stat = crabStats[normalizedDrop];
           }
 
-          list.innerHTML += `<li>${drop} <span class="rate">${statText}</span></li>`;
-        });
+          if (stat) {
+            const { count, rate: actualRate } = stat;
+            statText = `Logged: ${count} (${actualRate}%)`;
+          } else {
+            statText = `Logged: 0 (0%) — unlogged`;
+            console.warn(`Missing stat for "${normalizedDrop}" in ${dungeon}`);
+          }
 
-        section.appendChild(list);
-        container.appendChild(section);
-      }
-    });
-  </script>
-</body>
-</html>
+          list.innerHTML += `<li>${drop} <span class="rate">
