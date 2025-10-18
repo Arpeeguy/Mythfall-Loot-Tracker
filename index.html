@@ -23,48 +23,51 @@
   </footer>
 
 <script>
-  const lootData = {
-    "Pirate Cove": [
-      "Cutlass",
-      "Blunderbuss",
-      "Captain's Hat",
-      "Gunpowder Egg",
-      "Captain's Cape",
-      "Pirate Diary (Pg 1)",
-      "Pirate Diary (Pg 2)"
-    ],
-    "Coolcrab Grotto": [
-      "Coolcrab Shades",
-      "Dancing Boots",
-      "Wedding Band",
-      "Tidal Egg",
-      "Dance Notes (Pg 1)",
-      "Dance Notes (Pg 2)"
-    ],
-    "Luminous Cavern": [
-      "Luminescent Egg",
-      "Jellyhead Cap",
-      "White Jelly",
-      "Jelly Boots",
-      "Jelly Bow",
-      "Luminous Tome (Pg 1)",
-      "Luminous Tome (Pg 2)"
-    ]
-    // Future dungeons can be added here
-  };
+  const lootData = [
+    {
+      name: "Pirate Cove",
+      drops: [
+        "Cutlass",
+        "Blunderbuss",
+        "Captain's Hat",
+        "Gunpowder Egg",
+        "Captain's Cape",
+        "Pirate Diary (Pg 1)",
+        "Pirate Diary (Pg 2)"
+      ]
+    },
+    {
+      name: "Coolcrab Grotto",
+      drops: [
+        "Coolcrab Shades",
+        "Dancing Boots",
+        "Wedding Band",
+        "Tidal Egg",
+        "Dance Notes (Pg 1)",
+        "Dance Notes (Pg 2)"
+      ]
+    },
+    {
+      name: "Luminous Cavern",
+      drops: [
+        "Luminescent Egg",
+        "Jellyhead Cap",
+        "White Jelly",
+        "Jelly Boots",
+        "Jelly Bow",
+        "Luminous Tome (Pg 1)",
+        "Luminous Tome (Pg 2)"
+      ]
+    }
+    // Add future dungeons here
+  ];
 
   const normalize = str =>
     str.trim().replace(/’/g, "'").replace(/‘/g, "'").replace(/“|”/g, '"');
 
   const container = document.getElementById("dungeons");
 
-  const fixedOrder = ["Pirate Cove", "Coolcrab Grotto", "Luminous Cavern"];
-  const allDungeons = Object.keys(lootData);
-  const extras = allDungeons.filter(d => !fixedOrder.includes(d)).sort();
-  const orderedDungeons = [...fixedOrder, ...extras];
-
-  orderedDungeons.forEach(dungeon => {
-    const drops = lootData[dungeon];
+  lootData.forEach(({ name: dungeon, drops }) => {
     const jsonFile = `data/${dungeon.toLowerCase().replace(/ /g, "")}.json`;
 
     fetch(jsonFile)
