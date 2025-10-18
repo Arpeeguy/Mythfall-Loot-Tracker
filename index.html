@@ -32,79 +32,38 @@
         "Captain's Cape",
         "Pirate Diary (Pg 1)",
         "Pirate Diary (Pg 2)"
-      ],
-      "Coolcrab Grotto": [
-        "Coolcrab Shades",
-        "Dancing Boots",
-        "Wedding Band",
-        "Tidal Egg",
-        "Dance Notes (Pg 1)",
-        "Dance Notes (Pg 2)"
       ]
     };
 
     const normalize = str =>
       str.trim().replace(/’/g, "'").replace(/‘/g, "'").replace(/“|”/g, '"');
 
-    Promise.all([
-      fetch('data/piratecove.json').then(res => {
+    fetch('data/piratecove.json')
+      .then(res => {
         if (!res.ok) throw new Error("Failed to load piratecove.json");
         return res.json();
-      }),
-      fetch('data/coolcrabgrotto.json').then(res => {
-        if (!res.ok) throw new Error("Failed to load coolcrabgrotto.json");
-        return res.json();
       })
-    ])
-    .then(([pirateStats, crabStats]) => {
-      console.log("Pirate Stats:", pirateStats);
-      console.log("Coolcrab Stats:", crabStats);
+      .then(pirateStats => {
+        console.log("Pirate Stats:", pirateStats);
 
-      const container = document.getElementById("dungeons");
+        const container = document.getElementById("dungeons");
 
-      for (const [dungeon, drops] of Object.entries(lootData)) {
-        const section = document.createElement("section");
-        section.className = "dungeon";
+        for (const [dungeon, drops] of Object.entries(lootData)) {
+          const section = document.createElement("section");
+          section.className = "dungeon";
 
-        const title = document.createElement("h2");
-        title.textContent = dungeon;
-        section.appendChild(title);
+          const title = document.createElement("h2");
+          title.textContent = dungeon;
+          section.appendChild(title);
 
-        const list = document.createElement("ul");
+          const list = document.createElement("ul");
 
-        drops.forEach(drop => {
-          const normalizedDrop = normalize(drop);
-          let statText = "";
-          let stat = null;
+          drops.forEach(drop => {
+            const normalizedDrop = normalize(drop);
+            const stat = pirateStats[normalizedDrop];
+            let statText = "";
 
-          if (dungeon === "Pirate Cove") {
-            stat = pirateStats[normalizedDrop];
-          } else if (dungeon === "Coolcrab Grotto") {
-            stat = crabStats[normalizedDrop];
-          }
-
-          if (stat) {
-            const { count, rate } = stat;
-            statText = `Logged: ${count} (${rate}%)`;
-          } else {
-            statText = `Logged: 0 (0%) — unlogged`;
-            console.warn(`Missing stat for "${normalizedDrop}" in ${dungeon}`);
-          }
-
-          const item = document.createElement("li");
-          item.innerHTML = `${drop} <span class="rate">${statText}</span>`;
-          list.appendChild(item);
-        });
-
-        section.appendChild(list);
-        container.appendChild(section);
-      }
-    })
-    .catch(err => {
-      console.error("Error loading stats:", err);
-      const container = document.getElementById("dungeons");
-      container.innerHTML = `<p style="color:red;">Failed to load dungeon stats. Check console for details.</p>`;
-    });
-  </script>
-</body>
-</html>
+            if (stat) {
+              const { count, rate } = stat;
+              statText = `Logged: ${count} (${rate}%)`;
+            } else {
