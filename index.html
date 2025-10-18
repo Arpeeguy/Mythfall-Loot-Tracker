@@ -40,8 +40,12 @@
       "Tidal Egg",
       "Dance Notes (Pg 1)",
       "Dance Notes (Pg 2)"
-    ]
+    ],
     // Future dungeons can be added here
+    "Sunken Spires": [
+      "Pearl Wand",
+      "Bubble Tome"
+    ]
   };
 
   const normalize = str =>
@@ -49,10 +53,10 @@
 
   const container = document.getElementById("dungeons");
 
-  const dungeonOrder = ["Pirate Cove", "Coolcrab Grotto"];
+  const fixedOrder = ["Pirate Cove", "Coolcrab Grotto"];
   const allDungeons = Object.keys(lootData);
-  const remaining = allDungeons.filter(d => !dungeonOrder.includes(d)).sort();
-  const orderedDungeons = [...dungeonOrder, ...remaining];
+  const extras = allDungeons.filter(d => !fixedOrder.includes(d)).sort();
+  const orderedDungeons = [...fixedOrder, ...extras];
 
   orderedDungeons.forEach(dungeon => {
     const drops = lootData[dungeon];
@@ -80,10 +84,7 @@
           for (const [key, value] of Object.entries(stats.items)) {
             const normalizedKey = normalize(key);
             normalizedStats[normalizedKey] = value;
-            console.log(`Normalized key: "${normalizedKey}"`);
           }
-        } else {
-          console.warn(`Missing 'items' in ${dungeon} stats`);
         }
 
         drops.forEach(drop => {
@@ -97,7 +98,6 @@
             statText = `Logged: ${count} (${rate}%)`;
           } else {
             statText = `Logged: 0 (0%) — unlogged`;
-            console.warn(`Missing stat for "${normalizedDrop}"`);
           }
 
           const item = document.createElement("li");
