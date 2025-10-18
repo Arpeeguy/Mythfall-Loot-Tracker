@@ -67,3 +67,24 @@
               const { count, rate } = stat;
               statText = `Logged: ${count} (${rate}%)`;
             } else {
+              statText = `Logged: 0 (0%) — unlogged`;
+              console.warn(`Missing stat for "${normalizedDrop}"`);
+            }
+
+            const item = document.createElement("li");
+            item.innerHTML = `${drop} <span class="rate">${statText}</span>`;
+            list.appendChild(item);
+          });
+
+          section.appendChild(list);
+          container.appendChild(section);
+        }
+      })
+      .catch(err => {
+        console.error("Error loading Pirate Cove stats:", err);
+        const container = document.getElementById("dungeons");
+        container.innerHTML = `<p style="color:red;">Failed to load Pirate Cove stats. Check console for details.</p>`;
+      });
+  </script>
+</body>
+</html>
