@@ -9,7 +9,7 @@
 <body>
   <header>
     <h1>🧭 Mythfall Loot Tracker</h1>
-    <p>View dungeon drops and static drop rates — always available, even when the bot is offline.</p>
+    <p>View dungeon drops and live drop rates — always available, even when the bot is offline.</p>
   </header>
 
   <main>
@@ -24,24 +24,6 @@
 
   <script>
     const lootData = {
-      "Necromancer's Garden": [/* ... */],
-      "Chamber of the Awakened": [/* ... */],
-      "Volcanic Core": [/* ... */],
-      "Succubus Lair": [/* ... */],
-      "Volcanic Mines": [/* ... */],
-      "The Hanging Temple": [/* ... */],
-      "Grug Pit": [/* ... */],
-      "Scorpion Pit": [/* ... */],
-      "Temple of Anubis": [/* ... */],
-      "Alivarg's Tower": [/* ... */],
-      "Gorthan's Labyrinth": [/* ... */],
-      "Ancient Ruins": [/* ... */],
-      "Lorendel's Garden": [/* ... */],
-      "Goopy Grove": [/* ... */],
-      "Stoneheart Forest": [/* ... */],
-      "Eldertree Thicket": [/* ... */],
-      "Luminous Cavern": [/* ... */],
-      "Coolcrab Grotto": [/* ... */],
       "Pirate Cove": [
         "Cutlass",
         "Blunderbuss",
@@ -50,48 +32,63 @@
         "Captain's Cape",
         "Pirate Diary (Pg 1)",
         "Pirate Diary (Pg 2)"
+      ],
+      "Coolcrab Grotto": [
+        "Coolcrab Shades",
+        "Dancing Boots",
+        "Wedding Band",
+        "Tidal Egg",
+        "Dance Notes (Pg 1)",
+        "Dance Notes (Pg 2)"
+      ],
+      "Future Dungeons": [
+        "Coming Soon..."
       ]
     };
 
-    fetch('data/piratecove.json')
-      .then(response => response.json())
-      .catch(() => ({})) // fallback if file missing or invalid
-      .then(pirateStats => {
-        const container = document.getElementById("dungeons");
+    Promise.all([
+      fetch('data/piratecove.json').then(res => res.json()).catch(() => ({})),
+      fetch('data/coolcrabgrotto.json').then(res => res.json()).catch(() => ({}))
+    ]).then(([pirateStats, crabStats]) => {
+      const container = document.getElementById("dungeons");
 
-        for (const [dungeon, drops] of Object.entries(lootData).reverse()) {
-          const section = document.createElement("section");
-          section.className = "dungeon";
+      for (const [dungeon, drops] of Object.entries(lootData)) {
+        const section = document.createElement("section");
+        section.className = "dungeon";
 
-          const title = document.createElement("h2");
-          title.textContent = dungeon;
-          section.appendChild(title);
+        const title = document.createElement("h2");
+        title.textContent = dungeon;
+        section.appendChild(title);
 
-          const list = document.createElement("ul");
-          drops.forEach(drop => {
-            let statText = "";
+        const list = document.createElement("ul");
+        drops.forEach(drop => {
+          let statText = "";
 
-            if (dungeon === "Pirate Cove") {
-              if (pirateStats[drop]) {
-                const { count, rate: actualRate } = pirateStats[drop];
-                statText = `Logged: ${count} (${actualRate}%)`;
-              } else {
-                statText = `Logged: 0 (0%) — unlogged`;
-              }
+          if (dungeon === "Pirate Cove") {
+            if (pirateStats[drop]) {
+              const { count, rate: actualRate } = pirateStats[drop];
+              statText = `Logged: ${count} (${actualRate}%)`;
             } else {
-              let rate = "5%";
-              if (drop.toLowerCase().includes("egg")) rate = "3%";
-              if (drop.toLowerCase().includes("pg")) rate = "2%";
-              statText = `— ${rate}`;
+              statText = `Logged: 0 (0%) — unlogged`;
             }
+          } else if (dungeon === "Coolcrab Grotto") {
+            if (crabStats[drop]) {
+              const { count, rate: actualRate } = crabStats[drop];
+              statText = `Logged: ${count} (${actualRate}%)`;
+            } else {
+              statText = `Logged: 0 (0%) — unlogged`;
+            }
+          } else {
+            statText = `— placeholder`;
+          }
 
-            list.innerHTML += `<li>${drop} <span class="rate">${statText}</span></li>`;
-          });
+          list.innerHTML += `<li>${drop} <span class="rate">${statText}</span></li>`;
+        });
 
-          section.appendChild(list);
-          container.appendChild(section);
-        }
-      });
+        section.appendChild(list);
+        container.appendChild(section);
+      }
+    });
   </script>
 </body>
 </html>
