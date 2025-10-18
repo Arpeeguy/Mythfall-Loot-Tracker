@@ -1,0 +1,10 @@
+{
+  "dungeon": "Eldertree Thicket",
+  "totalDrops": 23,
+  "items": {
+    "Elderwood": {
+      "count": 23,
+      "rate": 100
+    }
+  }
+}
