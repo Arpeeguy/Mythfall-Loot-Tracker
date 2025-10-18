@@ -22,90 +22,94 @@
     <p>Built by Arpee for the Mythfall community</p>
   </footer>
 
-  <script>
-    const lootData = {
-      "Pirate Cove": [
-        "Cutlass",
-        "Blunderbuss",
-        "Captain's Hat",
-        "Gunpowder Egg",
-        "Captain's Cape",
-        "Pirate Diary (Pg 1)",
-        "Pirate Diary (Pg 2)"
-      ],
-      "Coolcrab Grotto": [
-        "Coolcrab Shades",
-        "Dancing Boots",
-        "Wedding Band",
-        "Tidal Egg",
-        "Dance Notes (Pg 1)",
-        "Dance Notes (Pg 2)"
-      ]
-    };
+<script>
+  const lootData = {
+    "Pirate Cove": [
+      "Cutlass",
+      "Blunderbuss",
+      "Captain's Hat",
+      "Gunpowder Egg",
+      "Captain's Cape",
+      "Pirate Diary (Pg 1)",
+      "Pirate Diary (Pg 2)"
+    ],
+    "Coolcrab Grotto": [
+      "Coolcrab Shades",
+      "Dancing Boots",
+      "Wedding Band",
+      "Tidal Egg",
+      "Dance Notes (Pg 1)",
+      "Dance Notes (Pg 2)"
+    ]
+  };
 
-    const normalize = str =>
-      str.trim().replace(/’/g, "'").replace(/‘/g, "'").replace(/“|”/g, '"');
+  const normalize = str =>
+    str.trim().replace(/’/g, "'").replace(/‘/g, "'").replace(/“|”/g, '"');
 
-    const container = document.getElementById("dungeons");
+  const container = document.getElementById("dungeons");
 
-    for (const [dungeon, drops] of Object.entries(lootData)) {
-      const jsonFile = `data/${dungeon.toLowerCase().replace(/ /g, "")}.json`;
+  for (const [dungeon, drops] of Object.entries(lootData)) {
+    const jsonFile = `data/${dungeon.toLowerCase().replace(/ /g, "")}.json`;
 
-      fetch(jsonFile)
-        .then(res => {
-          if (!res.ok) throw new Error(`Failed to load ${jsonFile}`);
-          return res.json();
-        })
-        .then(stats => {
-          console.log(`${dungeon} Stats:`, stats);
+    fetch(jsonFile)
+      .then(res => {
+        if (!res.ok) throw new Error(`Failed to load ${jsonFile}`);
+        return res.json();
+      })
+      .then(stats => {
+        console.log(`${dungeon} Stats:`, stats);
 
-          const section = document.createElement("section");
-          section.className = "dungeon";
+        const section = document.createElement("section");
+        section.className = "dungeon";
 
-          const title = document.createElement("h2");
-          title.textContent = dungeon;
-          section.appendChild(title);
+        const title = document.createElement("h2");
+        title.textContent = dungeon;
+        section.appendChild(title);
 
-          const list = document.createElement("ul");
+        const list = document.createElement("ul");
 
-          // Build a normalized lookup map
-          const normalizedStats = {};
-          if (stats.items) {
-            for (const [key, value] of Object.entries(stats.items)) {
-              normalizedStats[normalize(key)] = value;
-            }
+        // Build a normalized lookup map
+        const normalizedStats = {};
+        if (stats.items) {
+          for (const [key, value] of Object.entries(stats.items)) {
+            const normalizedKey = normalize(key);
+            normalizedStats[normalizedKey] = value;
+            console.log(`Normalized key: "${normalizedKey}"`);
+          }
+        } else {
+          console.warn(`Missing 'items' in ${dungeon} stats`);
+        }
+
+        drops.forEach(drop => {
+          const normalizedDrop = normalize(drop);
+          const stat = normalizedStats[normalizedDrop];
+
+          let statText = "";
+
+          if (stat) {
+            const { count, rate } = stat;
+            statText = `Logged: ${count} (${rate}%)`;
+          } else {
+            statText = `Logged: 0 (0%) — unlogged`;
+            console.warn(`Missing stat for "${normalizedDrop}"`);
           }
 
-          drops.forEach(drop => {
-            const normalizedDrop = normalize(drop);
-            const stat = normalizedStats[normalizedDrop];
-
-            let statText = "";
-
-            if (stat) {
-              const { count, rate } = stat;
-              statText = `Logged: ${count} (${rate}%)`;
-            } else {
-              statText = `Logged: 0 (0%) — unlogged`;
-              console.warn(`Missing stat for "${normalizedDrop}"`);
-            }
-
-            const item = document.createElement("li");
-            item.innerHTML = `${drop} <span class="rate">${statText}</span>`;
-            list.appendChild(item);
-          });
-
-          section.appendChild(list);
-          container.appendChild(section);
-        })
-        .catch(err => {
-          console.error(`Error loading ${dungeon} stats:`, err);
-          const errorMsg = document.createElement("p");
-          errorMsg.style.color = "red";
-          errorMsg.textContent = `Failed to load ${dungeon} stats.`;
-          container.appendChild(errorMsg);
+          const item = document.createElement("li");
+          item.innerHTML = `${drop} <span class="rate">${statText}</span>`;
+          list.appendChild(item);
         });
-    }
-  </script>
+
+        section.appendChild(list);
+        container.appendChild(section);
+      })
+      .catch(err => {
+        console.error(`Error loading ${dungeon} stats:`, err);
+        const errorMsg = document.createElement("p");
+        errorMsg.style.color = "red";
+        errorMsg.textContent = `Failed to load ${dungeon} stats.`;
+        container.appendChild(errorMsg);
+      });
+  }
+</script>
 </body>
 </html>
