@@ -18,23 +18,34 @@ module.exports = {
           { name: "Dance Notes (Pg 1)", value: "Dance Notes (Pg 1)" },
           { name: "Dance Notes (Pg 2)", value: "Dance Notes (Pg 2)" }
         )
+    )
+    .addIntegerOption(option =>
+      option.setName("quantity")
+        .setDescription("How many of this item dropped")
+        .setRequired(true)
+        .setMinValue(1)
+        .setMaxValue(99)
     ),
   async execute(interaction) {
     const drop = interaction.options.getString("item");
+    const quantity = interaction.options.getInteger("quantity");
     const user = interaction.user.username;
     const timestamp = new Date().toISOString();
     const dungeon = "Coolcrab Grotto";
-
-    const logLine = `${timestamp} | ${user} | ${dungeon} | ${drop}\n`;
     const logPath = path.join(__dirname, "../data/drops.log");
 
-    fs.appendFile(logPath, logLine, err => {
+    let logLines = "";
+    for (let i = 0; i < quantity; i++) {
+      logLines += `${timestamp} | ${user} | ${dungeon} | ${drop}\n`;
+    }
+
+    fs.appendFile(logPath, logLines, err => {
       if (err) {
         console.error("❌ Failed to log drop:", err);
         return interaction.reply({ content: "Failed to log drop.", ephemeral: true });
       }
 
-      interaction.reply({ content: `✅ Logged: ${drop} from Coolcrab Grotto`, ephemeral: true });
+      interaction.reply({ content: `✅ Logged ${quantity}x ${drop} from Coolcrab Grotto`, ephemeral: true });
     });
   }
 };
