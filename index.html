@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mythfall Loot Tracker!!!!</title>
+  <title>Mythfall Loot Tracker</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -60,7 +60,9 @@
         const list = document.createElement("ul");
         drops.forEach(drop => {
           let statText = "";
-          const normalizedDrop = drop.trim().replace(/’/g, "'");
+          const normalize = str => str.trim().replace(/’/g, "'").replace(/‘/g, "'").replace(/“|”/g, '"');
+          const normalizedDrop = normalize(drop);
+
 
           if (dungeon === "Pirate Cove") {
             const stat = pirateStats[normalizedDrop];
