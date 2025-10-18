@@ -1,0 +1,10 @@
+{
+  "dungeon": "Luminous Cavern",
+  "totalDrops": 1,
+  "items": {
+    "Jellyhead Cap": {
+      "count": 1,
+      "rate": 100
+    }
+  }
+}
