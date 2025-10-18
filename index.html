@@ -47,9 +47,16 @@
       str.trim().replace(/’/g, "'").replace(/‘/g, "'").replace(/“|”/g, '"');
 
     Promise.all([
-      fetch('data/piratecove.json').then(res => res.json()).catch(() => ({})),
-      fetch('data/coolcrabgrotto.json').then(res => res.json()).catch(() => ({}))
-    ]).then(([pirateStats, crabStats]) => {
+      fetch('data/piratecove.json').then(res => {
+        if (!res.ok) throw new Error("Failed to load piratecove.json");
+        return res.json();
+      }),
+      fetch('data/coolcrabgrotto.json').then(res => {
+        if (!res.ok) throw new Error("Failed to load coolcrabgrotto.json");
+        return res.json();
+      })
+    ])
+    .then(([pirateStats, crabStats]) => {
       console.log("Pirate Stats:", pirateStats);
       console.log("Coolcrab Stats:", crabStats);
 
@@ -64,6 +71,7 @@
         section.appendChild(title);
 
         const list = document.createElement("ul");
+
         drops.forEach(drop => {
           const normalizedDrop = normalize(drop);
           let statText = "";
@@ -76,14 +84,27 @@
           }
 
           if (stat) {
-            const { count, rate: actualRate } = stat;
-            statText = `Logged: ${count} (${actualRate}%)`;
+            const { count, rate } = stat;
+            statText = `Logged: ${count} (${rate}%)`;
           } else {
             statText = `Logged: 0 (0%) — unlogged`;
             console.warn(`Missing stat for "${normalizedDrop}" in ${dungeon}`);
           }
 
-          list.innerHTML += `<li>${drop} <span class="rate">
+          const item = document.createElement("li");
+          item.innerHTML = `${drop} <span class="rate">${statText}</span>`;
+          list.appendChild(item);
+        });
+
+        section.appendChild(list);
+        container.appendChild(section);
+      }
+    })
+    .catch(err => {
+      console.error("Error loading stats:", err);
+      const container = document.getElementById("dungeons");
+      container.innerHTML = `<p style="color:red;">Failed to load dungeon stats. Check console for details.</p>`;
+    });
   </script>
 </body>
 </html>
