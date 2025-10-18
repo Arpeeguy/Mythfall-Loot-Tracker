@@ -1,22 +1,26 @@
 {
   "dungeon": "Eldertree Thicket",
-  "totalDrops": 44,
+  "totalDrops": 52,
   "items": {
     "Elderwood": {
       "count": 23,
-      "rate": 52.3
+      "rate": 44.2
     },
     "Acorn Ring": {
       "count": 9,
-      "rate": 20.5
+      "rate": 17.3
     },
     "Rootspike Dagger": {
       "count": 8,
-      "rate": 18.2
+      "rate": 15.4
+    },
+    "Deciduous Vest": {
+      "count": 8,
+      "rate": 15.4
     },
     "Rootspike Shuriken": {
       "count": 4,
-      "rate": 9.1
+      "rate": 7.7
     }
   }
 }
