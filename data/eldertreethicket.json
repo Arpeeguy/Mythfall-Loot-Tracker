@@ -1,14 +1,18 @@
 {
   "dungeon": "Eldertree Thicket",
-  "totalDrops": 27,
+  "totalDrops": 35,
   "items": {
     "Elderwood": {
       "count": 23,
-      "rate": 85.2
+      "rate": 65.7
+    },
+    "Rootspike Dagger": {
+      "count": 8,
+      "rate": 22.9
     },
     "Rootspike Shuriken": {
       "count": 4,
-      "rate": 14.8
+      "rate": 11.4
     }
   }
 }
