@@ -69,17 +69,23 @@
 
           const list = document.createElement("ul");
           drops.forEach(drop => {
-            let rate = "5%";
-            if (drop.toLowerCase().includes("egg")) rate = "3%";
-            if (drop.toLowerCase().includes("pg")) rate = "2%";
-
             let statText = "";
-            if (dungeon === "Pirate Cove" && pirateStats[drop]) {
-              const { count, rate: actualRate } = pirateStats[drop];
-              statText = ` | Logged: ${count} (${actualRate}%)`;
+
+            if (dungeon === "Pirate Cove") {
+              if (pirateStats[drop]) {
+                const { count, rate: actualRate } = pirateStats[drop];
+                statText = `Logged: ${count} (${actualRate}%)`;
+              } else {
+                statText = `Logged: 0 (0%) — unlogged`;
+              }
+            } else {
+              let rate = "5%";
+              if (drop.toLowerCase().includes("egg")) rate = "3%";
+              if (drop.toLowerCase().includes("pg")) rate = "2%";
+              statText = `— ${rate}`;
             }
 
-            list.innerHTML += `<li>${drop} <span class="rate">— ${rate}${statText}</span></li>`;
+            list.innerHTML += `<li>${drop} <span class="rate">${statText}</span></li>`;
           });
 
           section.appendChild(list);
