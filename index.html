@@ -68,13 +68,17 @@
 
           const list = document.createElement("ul");
 
+          // Build a normalized lookup map
+          const normalizedStats = {};
+          if (stats.items) {
+            for (const [key, value] of Object.entries(stats.items)) {
+              normalizedStats[normalize(key)] = value;
+            }
+          }
+
           drops.forEach(drop => {
             const normalizedDrop = normalize(drop);
-            const stat = stats.items
-              ? Object.entries(stats.items).find(
-                  ([key]) => normalize(key) === normalizedDrop
-                )?.[1]
-              : null;
+            const stat = normalizedStats[normalizedDrop];
 
             let statText = "";
 
