@@ -285,7 +285,7 @@
     }
   ];
 
-  const normalize = str =>
+   const normalize = str =>
     str.trim().replace(/’/g, "'").replace(/‘/g, "'").replace(/“|”/g, '"');
 
   const container = document.getElementById("dungeons");
@@ -339,7 +339,11 @@
       })
       .catch(err => {
         const errorMsg = document.createElement("p");
-        errorMsg.style.color
+        errorMsg.style.color = "red";
+        errorMsg.textContent = `Failed to load ${dungeon} stats.`;
+        container.appendChild(errorMsg);
+      });
+  });
 </script>
 </body>
 </html>
