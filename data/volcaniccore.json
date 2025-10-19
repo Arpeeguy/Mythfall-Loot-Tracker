@@ -1,0 +1,14 @@
+{
+  "dungeon": "Volcanic Core",
+  "totalDrops": 18,
+  "items": {
+    "Crystal": {
+      "count": 17,
+      "rate": 94.4
+    },
+    "Ignarok's Essence": {
+      "count": 1,
+      "rate": 5.6
+    }
+  }
+}
