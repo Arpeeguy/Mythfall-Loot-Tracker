@@ -1,0 +1,18 @@
+{
+  "dungeon": "Chamber of the Awakened",
+  "totalDrops": 15,
+  "items": {
+    "Crystal": {
+      "count": 11,
+      "rate": 73.3
+    },
+    "Immortal Chains (Pg 2)": {
+      "count": 2,
+      "rate": 13.3
+    },
+    "Immortal Chains (Pg 3)": {
+      "count": 2,
+      "rate": 13.3
+    }
+  }
+}
