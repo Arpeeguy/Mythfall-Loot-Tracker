@@ -99,6 +99,22 @@
         "Book of Slime (Pg 3)",
         "Shard"
       ]
+    },
+    {
+      name: "Lorendel's Garden",
+      drops: [
+        "Leaf Blade",
+        "Leafy Crown",
+        "Moonstone Essence",
+        "Goldleaf Boots",
+        "Lorendel's Ring",
+        "Woodland Vest",
+        "Gilded Egg",
+        "Elven Tale (Pg 1)",
+        "Elven Tale (Pg 2)",
+        "Elven Tale (Pg 3)",
+        "Shard"
+      ]
     }
   ];
 
@@ -108,7 +124,7 @@
   const container = document.getElementById("dungeons");
 
   lootData.forEach(({ name: dungeon, drops }) => {
-    const jsonFile = `data/${dungeon.toLowerCase().replace(/ /g, "")}.json`;
+    const jsonFile = `data/${dungeon.toLowerCase().replace(/[^a-z0-9]/gi, "")}.json`;
 
     fetch(jsonFile)
       .then(res => {
