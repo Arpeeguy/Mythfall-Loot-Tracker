@@ -1,0 +1,38 @@
+{
+  "dungeon": "Goopy Grove",
+  "totalDrops": 39,
+  "items": {
+    "Shard": {
+      "count": 14,
+      "rate": 35.9
+    },
+    "Slime Heart": {
+      "count": 7,
+      "rate": 17.9
+    },
+    "Ring of Pain": {
+      "count": 4,
+      "rate": 10.3
+    },
+    "Nightcap": {
+      "count": 4,
+      "rate": 10.3
+    },
+    "Goopy Cape": {
+      "count": 3,
+      "rate": 7.7
+    },
+    "Book of Slime (Pg 1)": {
+      "count": 3,
+      "rate": 7.7
+    },
+    "Book of Slime (Pg 2)": {
+      "count": 2,
+      "rate": 5.1
+    },
+    "Book of Slime (Pg 3)": {
+      "count": 2,
+      "rate": 5.1
+    }
+  }
+}
