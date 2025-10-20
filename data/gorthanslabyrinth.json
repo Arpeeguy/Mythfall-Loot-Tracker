@@ -1,34 +1,38 @@
 {
   "dungeon": "Gorthan's Labyrinth",
-  "totalDrops": 31,
+  "totalDrops": 35,
   "items": {
     "Severing Tome (Pg 1)": {
       "count": 10,
-      "rate": 32.3
+      "rate": 28.6
     },
     "Minotaur Horn": {
       "count": 8,
-      "rate": 25.8
+      "rate": 22.9
     },
     "Chipped Labrys": {
       "count": 6,
-      "rate": 19.4
+      "rate": 17.1
+    },
+    "Severing Tome (Pg 2)": {
+      "count": 4,
+      "rate": 11.4
     },
     "Bullkin Egg": {
       "count": 3,
-      "rate": 9.7
+      "rate": 8.6
     },
     "Shackles": {
       "count": 2,
-      "rate": 6.5
+      "rate": 5.7
     },
     "Severing Tome (Pg 3)": {
       "count": 1,
-      "rate": 3.2
+      "rate": 2.9
     },
     "Shard": {
       "count": 1,
-      "rate": 3.2
+      "rate": 2.9
     }
   }
 }
