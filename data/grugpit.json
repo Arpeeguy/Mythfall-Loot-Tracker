@@ -1,38 +1,38 @@
 {
   "dungeon": "Grug Pit",
-  "totalDrops": 170,
+  "totalDrops": 181,
   "items": {
     "Grug's Skull Club": {
       "count": 33,
-      "rate": 19.4
+      "rate": 18.2
     },
     "Shard": {
       "count": 30,
-      "rate": 17.6
+      "rate": 16.6
     },
     "Executioner's Hood": {
       "count": 26,
-      "rate": 15.3
+      "rate": 14.4
     },
     "Skull Mask": {
       "count": 25,
-      "rate": 14.7
+      "rate": 13.8
     },
     "The Might of Grug (Pg 1)": {
       "count": 23,
-      "rate": 13.5
+      "rate": 12.7
+    },
+    "The Might of Grug (Pg 2)": {
+      "count": 22,
+      "rate": 12.2
     },
     "The Might of Grug (Pg 3)": {
       "count": 20,
-      "rate": 11.8
-    },
-    "The Might of Grug (Pg 2)": {
-      "count": 11,
-      "rate": 6.5
+      "rate": 11
     },
     "Orcish Egg": {
       "count": 2,
-      "rate": 1.2
+      "rate": 1.1
     }
   }
 }
