@@ -1,26 +1,26 @@
 {
   "dungeon": "Alivarg's Tower",
-  "totalDrops": 99,
+  "totalDrops": 101,
   "items": {
     "Willpower Crystal": {
       "count": 55,
-      "rate": 55.6
+      "rate": 54.5
     },
     "Jester Hat": {
       "count": 11,
-      "rate": 11.1
+      "rate": 10.9
     },
     "Broken Crown": {
       "count": 11,
-      "rate": 11.1
+      "rate": 10.9
     },
     "Wizard's Cape": {
-      "count": 5,
-      "rate": 5.1
+      "count": 7,
+      "rate": 6.9
     },
     "Strength Crystal": {
       "count": 5,
-      "rate": 5.1
+      "rate": 5
     },
     "Vitality Crystal": {
       "count": 3,
