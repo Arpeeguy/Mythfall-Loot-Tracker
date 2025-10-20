@@ -1,22 +1,26 @@
 {
   "dungeon": "Alivarg's Tower",
-  "totalDrops": 258,
+  "totalDrops": 264,
   "items": {
     "Willpower Crystal": {
       "count": 186,
-      "rate": 72.1
+      "rate": 70.5
     },
     "Jester Hat": {
       "count": 11,
-      "rate": 4.3
+      "rate": 4.2
     },
     "Broken Crown": {
       "count": 11,
-      "rate": 4.3
+      "rate": 4.2
+    },
+    "Strength Crystal": {
+      "count": 11,
+      "rate": 4.2
     },
     "Spellthief Tome (Pg 1)": {
       "count": 9,
-      "rate": 3.5
+      "rate": 3.4
     },
     "Wizard's Cape": {
       "count": 7,
@@ -34,17 +38,13 @@
       "count": 5,
       "rate": 1.9
     },
-    "Strength Crystal": {
-      "count": 5,
-      "rate": 1.9
-    },
     "Dexterity Crystal": {
       "count": 5,
       "rate": 1.9
     },
     "Speed Crystal": {
       "count": 3,
-      "rate": 1.2
+      "rate": 1.1
     },
     "Wizard Boots": {
       "count": 1,
