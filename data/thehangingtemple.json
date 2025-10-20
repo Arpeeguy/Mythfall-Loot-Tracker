@@ -1,14 +1,14 @@
 {
   "dungeon": "The Hanging Temple",
-  "totalDrops": 165,
+  "totalDrops": 167,
   "items": {
     "Speed Crystal": {
       "count": 123,
-      "rate": 74.5
+      "rate": 73.7
     },
     "Quarterstaff": {
       "count": 10,
-      "rate": 6.1
+      "rate": 6
     },
     "Monk Aegis (Pg 3)": {
       "count": 7,
@@ -34,13 +34,13 @@
       "count": 4,
       "rate": 2.4
     },
+    "Monk Robe": {
+      "count": 3,
+      "rate": 1.8
+    },
     "Monk Shawl": {
       "count": 2,
       "rate": 1.2
-    },
-    "Monk Robe": {
-      "count": 1,
-      "rate": 0.6
     }
   }
 }
