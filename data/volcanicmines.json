@@ -1,34 +1,34 @@
 {
   "dungeon": "Volcanic Mines",
-  "totalDrops": 167,
+  "totalDrops": 181,
   "items": {
     "Defense Crystal": {
       "count": 101,
-      "rate": 60.5
+      "rate": 55.8
     },
     "Mining Helmet": {
       "count": 20,
-      "rate": 12
+      "rate": 11
+    },
+    "Ore Bag": {
+      "count": 20,
+      "rate": 11
     },
     "Dwarven Ring": {
       "count": 19,
-      "rate": 11.4
+      "rate": 10.5
     },
     "Dwarven Drums (Pg 1)": {
       "count": 11,
-      "rate": 6.6
-    },
-    "Ore Bag": {
-      "count": 6,
-      "rate": 3.6
+      "rate": 6.1
     },
     "Dwarven Drums (Pg 2)": {
       "count": 6,
-      "rate": 3.6
+      "rate": 3.3
     },
     "Dwarven Drums (Pg 3)": {
       "count": 4,
-      "rate": 2.4
+      "rate": 2.2
     }
   }
 }
