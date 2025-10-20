@@ -1,42 +1,42 @@
 {
   "dungeon": "Eldertree Thicket",
-  "totalDrops": 335,
+  "totalDrops": 294,
   "items": {
     "Shard": {
-      "count": 113,
-      "rate": 33.7
+      "count": 72,
+      "rate": 24.5
     },
     "Elderwood Book (Pg 2)": {
       "count": 39,
-      "rate": 11.6
+      "rate": 13.3
     },
     "Deciduous Vest": {
       "count": 36,
-      "rate": 10.7
+      "rate": 12.2
     },
     "Elderwood Book (Pg 1)": {
       "count": 36,
-      "rate": 10.7
+      "rate": 12.2
     },
     "Elderwood Book (Pg 3)": {
       "count": 33,
-      "rate": 9.9
+      "rate": 11.2
     },
     "Acorn Ring": {
       "count": 27,
-      "rate": 8.1
+      "rate": 9.2
     },
     "Rootspike Dagger": {
       "count": 26,
-      "rate": 7.8
+      "rate": 8.8
     },
     "Rootspike Shuriken": {
       "count": 22,
-      "rate": 6.6
+      "rate": 7.5
     },
     "Verdant Egg": {
       "count": 3,
-      "rate": 0.9
+      "rate": 1
     }
   }
 }
