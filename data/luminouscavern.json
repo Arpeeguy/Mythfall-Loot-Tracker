@@ -1,22 +1,22 @@
 {
   "dungeon": "Luminous Cavern",
-  "totalDrops": 4,
+  "totalDrops": 7,
   "items": {
     "Jellyhead Cap": {
-      "count": 1,
-      "rate": 25
+      "count": 4,
+      "rate": 57.1
     },
     "Jelly Bow": {
       "count": 1,
-      "rate": 25
+      "rate": 14.3
     },
     "Luminous Tome (Pg 1)": {
       "count": 1,
-      "rate": 25
+      "rate": 14.3
     },
     "Luminescent Egg": {
       "count": 1,
-      "rate": 25
+      "rate": 14.3
     }
   }
 }
