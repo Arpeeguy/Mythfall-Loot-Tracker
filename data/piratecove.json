@@ -1,34 +1,34 @@
 {
   "dungeon": "Pirate Cove",
-  "totalDrops": 41,
+  "totalDrops": 60,
   "items": {
+    "Cutlass": {
+      "count": 29,
+      "rate": 48.3
+    },
     "Blunderbuss": {
       "count": 11,
-      "rate": 26.8
-    },
-    "Cutlass": {
-      "count": 10,
-      "rate": 24.4
+      "rate": 18.3
     },
     "Pirate Diary (Pg 2)": {
       "count": 8,
-      "rate": 19.5
+      "rate": 13.3
     },
     "Captain's Hat": {
       "count": 4,
-      "rate": 9.8
+      "rate": 6.7
     },
     "Pirate Diary (Pg 1)": {
       "count": 4,
-      "rate": 9.8
+      "rate": 6.7
     },
     "Gunpowder Egg": {
       "count": 3,
-      "rate": 7.3
+      "rate": 5
     },
     "Captain's Cape": {
       "count": 1,
-      "rate": 2.4
+      "rate": 1.7
     }
   }
 }
