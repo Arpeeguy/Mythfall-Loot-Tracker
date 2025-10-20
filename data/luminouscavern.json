@@ -1,30 +1,30 @@
 {
   "dungeon": "Luminous Cavern",
-  "totalDrops": 26,
+  "totalDrops": 27,
   "items": {
     "White Jelly": {
       "count": 16,
-      "rate": 61.5
+      "rate": 59.3
     },
     "Jellyhead Cap": {
       "count": 4,
-      "rate": 15.4
+      "rate": 14.8
     },
     "Jelly Boots": {
       "count": 3,
-      "rate": 11.5
+      "rate": 11.1
     },
     "Jelly Bow": {
-      "count": 1,
-      "rate": 3.8
+      "count": 2,
+      "rate": 7.4
     },
     "Luminous Tome (Pg 1)": {
       "count": 1,
-      "rate": 3.8
+      "rate": 3.7
     },
     "Luminescent Egg": {
       "count": 1,
-      "rate": 3.8
+      "rate": 3.7
     }
   }
 }
