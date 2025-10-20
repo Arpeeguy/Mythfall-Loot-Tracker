@@ -1,22 +1,22 @@
 {
   "dungeon": "Chamber of the Awakened",
-  "totalDrops": 17,
+  "totalDrops": 19,
   "items": {
     "Crystal": {
       "count": 11,
-      "rate": 64.7
+      "rate": 57.9
+    },
+    "Immortal Chains (Pg 3)": {
+      "count": 4,
+      "rate": 21.1
     },
     "Immortal Chains (Pg 2)": {
       "count": 3,
-      "rate": 17.6
-    },
-    "Immortal Chains (Pg 3)": {
-      "count": 2,
-      "rate": 11.8
+      "rate": 15.8
     },
     "Awakened Heart": {
       "count": 1,
-      "rate": 5.9
+      "rate": 5.3
     }
   }
 }
