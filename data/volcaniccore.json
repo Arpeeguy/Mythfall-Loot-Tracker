@@ -1,14 +1,18 @@
 {
   "dungeon": "Volcanic Core",
-  "totalDrops": 19,
+  "totalDrops": 21,
   "items": {
     "Crystal": {
       "count": 17,
-      "rate": 89.5
+      "rate": 81
     },
     "Ignarok's Essence": {
       "count": 2,
-      "rate": 10.5
+      "rate": 9.5
+    },
+    "Molten Egg": {
+      "count": 2,
+      "rate": 9.5
     }
   }
 }
