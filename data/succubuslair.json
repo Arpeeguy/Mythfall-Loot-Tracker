@@ -1,34 +1,34 @@
 {
   "dungeon": "Succubus Lair",
-  "totalDrops": 106,
+  "totalDrops": 108,
   "items": {
     "Vitality Crystal": {
       "count": 66,
-      "rate": 62.3
+      "rate": 61.1
     },
     "Demon Heart": {
       "count": 11,
-      "rate": 10.4
+      "rate": 10.2
     },
     "Demonic Corset": {
       "count": 8,
-      "rate": 7.5
+      "rate": 7.4
     },
     "Bloodletting Ritual (Pg 1)": {
       "count": 7,
-      "rate": 6.6
+      "rate": 6.5
     },
     "Bloodkiss Cloak": {
       "count": 5,
-      "rate": 4.7
+      "rate": 4.6
+    },
+    "Bloodletting Ritual (Pg 3)": {
+      "count": 5,
+      "rate": 4.6
     },
     "Bloodletting Ritual (Pg 2)": {
       "count": 4,
-      "rate": 3.8
-    },
-    "Bloodletting Ritual (Pg 3)": {
-      "count": 3,
-      "rate": 2.8
+      "rate": 3.7
     },
     "Demon Egg": {
       "count": 2,
