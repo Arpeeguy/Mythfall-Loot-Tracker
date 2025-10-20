@@ -1,10 +1,10 @@
 {
   "dungeon": "Alivarg's Tower",
-  "totalDrops": 256,
+  "totalDrops": 258,
   "items": {
     "Willpower Crystal": {
       "count": 186,
-      "rate": 72.7
+      "rate": 72.1
     },
     "Jester Hat": {
       "count": 11,
@@ -32,15 +32,15 @@
     },
     "Spellthief Tome (Pg 2)": {
       "count": 5,
-      "rate": 2
+      "rate": 1.9
     },
     "Strength Crystal": {
       "count": 5,
-      "rate": 2
+      "rate": 1.9
     },
     "Dexterity Crystal": {
-      "count": 3,
-      "rate": 1.2
+      "count": 5,
+      "rate": 1.9
     },
     "Speed Crystal": {
       "count": 3,
