@@ -1,14 +1,18 @@
 {
   "dungeon": "The Hanging Temple",
-  "totalDrops": 173,
+  "totalDrops": 175,
   "items": {
     "Speed Crystal": {
       "count": 123,
-      "rate": 71.1
+      "rate": 70.3
     },
     "Quarterstaff": {
       "count": 10,
-      "rate": 5.8
+      "rate": 5.7
+    },
+    "Monk Aegis (Pg 1)": {
+      "count": 7,
+      "rate": 4
     },
     "Monk Aegis (Pg 3)": {
       "count": 7,
@@ -16,15 +20,11 @@
     },
     "Monk Boots": {
       "count": 6,
-      "rate": 3.5
+      "rate": 3.4
     },
     "Ring of Focus": {
       "count": 6,
-      "rate": 3.5
-    },
-    "Monk Aegis (Pg 1)": {
-      "count": 5,
-      "rate": 2.9
+      "rate": 3.4
     },
     "Monk Hood": {
       "count": 4,
