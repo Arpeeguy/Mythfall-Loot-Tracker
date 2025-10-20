@@ -1,42 +1,42 @@
 {
   "dungeon": "Necromancer's Garden",
-  "totalDrops": 79,
+  "totalDrops": 81,
   "items": {
     "Crystal": {
       "count": 32,
-      "rate": 40.5
+      "rate": 39.5
     },
     "Sunleaf Boots": {
       "count": 7,
-      "rate": 8.9
+      "rate": 8.6
     },
     "Sunleaf Cloak": {
       "count": 6,
-      "rate": 7.6
+      "rate": 7.4
     },
     "Sunleaf Hood": {
       "count": 5,
-      "rate": 6.3
+      "rate": 6.2
+    },
+    "Duskwood": {
+      "count": 5,
+      "rate": 6.2
     },
     "Shadowleaf Cloak": {
       "count": 5,
-      "rate": 6.3
+      "rate": 6.2
     },
     "Shadowleaf Hood": {
       "count": 4,
-      "rate": 5.1
+      "rate": 4.9
     },
     "Shadowleaf Boots": {
       "count": 4,
-      "rate": 5.1
-    },
-    "Duskwood": {
-      "count": 3,
-      "rate": 3.8
+      "rate": 4.9
     },
     "Shadowstep Tome (Pg 3)": {
       "count": 3,
-      "rate": 3.8
+      "rate": 3.7
     },
     "Dawnlight Tome (Pg 2)": {
       "count": 2,
@@ -52,19 +52,19 @@
     },
     "Dawnwood": {
       "count": 1,
-      "rate": 1.3
+      "rate": 1.2
     },
     "Rotted Egg": {
       "count": 1,
-      "rate": 1.3
+      "rate": 1.2
     },
     "Dawnlight Tome (Pg 1)": {
       "count": 1,
-      "rate": 1.3
+      "rate": 1.2
     },
     "Shadowstep Tome (Pg 2)": {
       "count": 1,
-      "rate": 1.3
+      "rate": 1.2
     }
   }
 }
