@@ -28,6 +28,8 @@ module.exports = {
 
     for (const line of lines) {
       const parts = line.split(" | ");
+      if (parts.length < 4) continue;
+
       const dungeon = parts[2];
       const item = parts[3];
 
@@ -35,22 +37,22 @@ module.exports = {
       grouped[dungeon][item] = (grouped[dungeon][item] || 0) + 1;
     }
 
-    const sections = Object.entries(grouped)
-      .sort(([a], [b]) => a.localeCompare(b)) // Sort dungeons alphabetically
-      .map(([dungeon, items]) => {
-        const sortedItems = Object.entries(items)
-          .sort(([a], [b]) => a.localeCompare(b))
-          .map(([item, count]) => `• ${item}: ${count}`)
-          .join("\n");
+    const dungeonNames = Object.keys(grouped).sort();
 
-        return `📍 **${dungeon}**\n${sortedItems}`;
-      });
-
-    const reply = sections.join("\n\n");
-
-    interaction.reply({
-      content: `📜 Your drop history:\n\n${reply}`,
+    await interaction.reply({
+      content: `📜 Your drop history:`,
       ephemeral: true
     });
+
+    for (const dungeon of dungeonNames) {
+      const items = grouped[dungeon];
+      const sortedItems = Object.entries(items)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([item, count]) => `• ${item}: ${count}`)
+        .join("\n");
+
+      const message = `📍 **${dungeon}**\n${sortedItems}`;
+      await interaction.followUp({ content: message, ephemeral: true });
+    }
   }
 };

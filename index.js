@@ -66,7 +66,7 @@ client.on(Events.InteractionCreate, async interaction => {
 });
 
 // Heartbeat to confirm container stays alive
-setInterval(() => console.log('💓 Bot heartbeat'), 30000);
+setInterval(() => console.log('💓 Bot heartbeat'), 1800000);
 
 // Login
 client.login(process.env.DISCORD_TOKEN);

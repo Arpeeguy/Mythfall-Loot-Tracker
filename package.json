@@ -5,13 +5,19 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "deploy": "node deploy-commands.js"
+    "deploy": "node deploy-commands.js",
+    "start-bot": "node index.js",
+    "start-autopush": "node scripts/autoPush.js",
+    "start-all": "concurrently \"npm run start-bot\" \"npm run start-autopush\""
   },
   "keywords": [],
-  "author": "Avi",
+  "author": "Arpee",
   "license": "MIT",
   "dependencies": {
+    "chokidar": "^4.0.3",
+    "concurrently": "^8.2.2",
     "discord.js": "^14.13.0",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "simple-git": "^3.28.0"
   }
 }

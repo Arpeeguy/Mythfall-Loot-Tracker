@@ -38,25 +38,25 @@ module.exports = {
       dungeonStats[dungeon].items[item] = (dungeonStats[dungeon].items[item] || 0) + 1;
     }
 
-    const sections = Object.entries(dungeonStats)
-      .sort(([a], [b]) => a.localeCompare(b))
-      .map(([dungeon, { total, items }]) => {
-        const sortedItems = Object.entries(items)
-          .sort(([a], [b]) => a.localeCompare(b))
-          .map(([item, count]) => {
-            const rate = ((count / total) * 100).toFixed(2);
-            return `• ${item}: ${count} (${rate}%)`;
-          })
-          .join("\n");
+    const dungeonNames = Object.keys(dungeonStats).sort();
 
-        return `📍 **${dungeon}**\n${sortedItems}`;
-      });
-
-    const reply = sections.join("\n\n");
-
-    interaction.reply({
-      content: `📊 Your personal drop rates:\n\n${reply}`,
+    await interaction.reply({
+      content: `📊 Your personal drop rates:`,
       ephemeral: true
     });
+
+    for (const dungeon of dungeonNames) {
+      const { total, items } = dungeonStats[dungeon];
+      const sortedItems = Object.entries(items)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([item, count]) => {
+          const rate = ((count / total) * 100).toFixed(2);
+          return `• ${item}: ${count} (${rate}%)`;
+        })
+        .join("\n");
+
+      const message = `📍 **${dungeon}**\n${sortedItems}`;
+      await interaction.followUp({ content: message, ephemeral: true });
+    }
   }
 };
