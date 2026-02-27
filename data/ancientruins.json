@@ -1,34 +1,34 @@
 {
   "dungeon": "Ancient Ruins",
-  "totalDrops": 329,
+  "totalDrops": 341,
   "items": {
     "Dexterity Crystal": {
       "count": 160,
-      "rate": 48.6
+      "rate": 46.9
     },
     "Graviton Shard": {
       "count": 41,
-      "rate": 12.5
+      "rate": 12
+    },
+    "Artificer's Goggles": {
+      "count": 36,
+      "rate": 10.6
     },
     "Antibind Manual (Pg 1)": {
       "count": 33,
-      "rate": 10
+      "rate": 9.7
     },
     "Artificer's Rucksack": {
       "count": 29,
-      "rate": 8.8
-    },
-    "Artificer's Goggles": {
-      "count": 24,
-      "rate": 7.3
+      "rate": 8.5
     },
     "Antibind Manual (Pg 2)": {
       "count": 20,
-      "rate": 6.1
+      "rate": 5.9
     },
     "Antibind Manual (Pg 3)": {
       "count": 15,
-      "rate": 4.6
+      "rate": 4.4
     },
     "Ancient Egg": {
       "count": 7,
