@@ -1,30 +1,34 @@
 {
   "dungeon": "Chamber of the Awakened",
-  "totalDrops": 56,
+  "totalDrops": 106,
   "items": {
     "Crystal": {
       "count": 21,
-      "rate": 37.5
+      "rate": 19.8
+    },
+    "Immortal Chains (Pg 2)": {
+      "count": 20,
+      "rate": 18.9
+    },
+    "Immortal Chains (Pg 3)": {
+      "count": 20,
+      "rate": 18.9
+    },
+    "Immortal Chains (Pg 1)": {
+      "count": 17,
+      "rate": 16
     },
     "Bone Dagger": {
       "count": 15,
-      "rate": 26.8
+      "rate": 14.2
     },
     "Awakened Heart": {
       "count": 9,
-      "rate": 16.1
-    },
-    "Immortal Chains (Pg 3)": {
-      "count": 4,
-      "rate": 7.1
+      "rate": 8.5
     },
     "Egg of the Loyal": {
       "count": 4,
-      "rate": 7.1
-    },
-    "Immortal Chains (Pg 2)": {
-      "count": 3,
-      "rate": 5.4
+      "rate": 3.8
     }
   }
 }
