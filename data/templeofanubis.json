@@ -1,26 +1,26 @@
 {
   "dungeon": "Temple of Anubis",
-  "totalDrops": 242,
+  "totalDrops": 245,
   "items": {
     "Strength Crystal": {
       "count": 171,
-      "rate": 70.7
+      "rate": 69.8
     },
     "Book of Death (Pg 1)": {
       "count": 19,
-      "rate": 7.9
+      "rate": 7.8
+    },
+    "Nemes": {
+      "count": 13,
+      "rate": 5.3
     },
     "Book of Death (Pg 3)": {
       "count": 13,
-      "rate": 5.4
+      "rate": 5.3
     },
     "Jackal Heart": {
       "count": 11,
       "rate": 4.5
-    },
-    "Nemes": {
-      "count": 10,
-      "rate": 4.1
     },
     "Khopesh": {
       "count": 8,
