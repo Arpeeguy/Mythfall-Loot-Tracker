@@ -1,42 +1,42 @@
 {
   "dungeon": "Scorpion Pit",
-  "totalDrops": 163,
+  "totalDrops": 166,
   "items": {
     "Chitin Fragment": {
       "count": 78,
-      "rate": 47.9
+      "rate": 47
     },
     "Scorpion Stinger": {
       "count": 28,
-      "rate": 17.2
+      "rate": 16.9
     },
     "Shard": {
       "count": 19,
-      "rate": 11.7
+      "rate": 11.4
     },
     "Scorpion Diadem": {
       "count": 15,
-      "rate": 9.2
+      "rate": 9
     },
     "Scorpion King's Ring": {
       "count": 9,
-      "rate": 5.5
+      "rate": 5.4
     },
     "Scorpion Scribblings (Pg 1)": {
       "count": 6,
-      "rate": 3.7
+      "rate": 3.6
+    },
+    "Brood Egg": {
+      "count": 4,
+      "rate": 2.4
     },
     "Scorpion Scribblings (Pg 3)": {
       "count": 4,
-      "rate": 2.5
+      "rate": 2.4
     },
     "Scorpion Scribblings (Pg 2)": {
       "count": 3,
       "rate": 1.8
-    },
-    "Brood Egg": {
-      "count": 1,
-      "rate": 0.6
     }
   }
 }
