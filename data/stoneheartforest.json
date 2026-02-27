@@ -1,10 +1,10 @@
 {
   "dungeon": "Stoneheart Forest",
-  "totalDrops": 399,
+  "totalDrops": 400,
   "items": {
     "Shard": {
       "count": 134,
-      "rate": 33.6
+      "rate": 33.5
     },
     "Rockshard Club": {
       "count": 51,
@@ -27,8 +27,8 @@
       "rate": 10
     },
     "Book of Stone (Pg 2)": {
-      "count": 32,
-      "rate": 8
+      "count": 33,
+      "rate": 8.3
     },
     "Stony Egg": {
       "count": 8,
