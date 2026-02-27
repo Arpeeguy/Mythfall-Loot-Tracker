@@ -1,46 +1,46 @@
 {
   "dungeon": "Lorendel's Garden",
-  "totalDrops": 90,
+  "totalDrops": 95,
   "items": {
+    "Leafy Crown": {
+      "count": 14,
+      "rate": 14.7
+    },
     "Elven Tale (Pg 2)": {
       "count": 14,
-      "rate": 15.6
+      "rate": 14.7
     },
     "Goldleaf Boots": {
       "count": 13,
-      "rate": 14.4
+      "rate": 13.7
     },
     "Elven Tale (Pg 1)": {
       "count": 13,
-      "rate": 14.4
+      "rate": 13.7
     },
     "Lorendel's Ring": {
       "count": 11,
-      "rate": 12.2
-    },
-    "Leafy Crown": {
-      "count": 9,
-      "rate": 10
+      "rate": 11.6
     },
     "Woodland Vest": {
       "count": 8,
-      "rate": 8.9
+      "rate": 8.4
     },
     "Elven Tale (Pg 3)": {
       "count": 8,
-      "rate": 8.9
+      "rate": 8.4
     },
     "Moonstone Essence": {
       "count": 6,
-      "rate": 6.7
+      "rate": 6.3
     },
     "Shard": {
       "count": 4,
-      "rate": 4.4
+      "rate": 4.2
     },
     "Gilded Egg": {
       "count": 4,
-      "rate": 4.4
+      "rate": 4.2
     }
   }
 }
