@@ -1,26 +1,26 @@
 {
   "dungeon": "Temple of Anubis",
-  "totalDrops": 273,
+  "totalDrops": 278,
   "items": {
     "Strength Crystal": {
       "count": 171,
-      "rate": 62.6
+      "rate": 61.5
     },
     "Book of Death (Pg 1)": {
       "count": 30,
-      "rate": 11
+      "rate": 10.8
     },
     "Book of Death (Pg 2)": {
       "count": 20,
-      "rate": 7.3
+      "rate": 7.2
+    },
+    "Book of Death (Pg 3)": {
+      "count": 18,
+      "rate": 6.5
     },
     "Nemes": {
       "count": 13,
-      "rate": 4.8
-    },
-    "Book of Death (Pg 3)": {
-      "count": 13,
-      "rate": 4.8
+      "rate": 4.7
     },
     "Jackal Heart": {
       "count": 11,
@@ -32,7 +32,7 @@
     },
     "Mummified Egg": {
       "count": 4,
-      "rate": 1.5
+      "rate": 1.4
     }
   }
 }
