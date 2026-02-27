@@ -1,38 +1,38 @@
 {
   "dungeon": "Stoneheart Forest",
-  "totalDrops": 344,
+  "totalDrops": 356,
   "items": {
     "Shard": {
       "count": 134,
-      "rate": 39
+      "rate": 37.6
+    },
+    "Granite Greatblade": {
+      "count": 49,
+      "rate": 13.8
     },
     "Book of Stone (Pg 3)": {
       "count": 40,
-      "rate": 11.6
-    },
-    "Granite Greatblade": {
-      "count": 37,
-      "rate": 10.8
+      "rate": 11.2
     },
     "Book of Stone (Pg 1)": {
       "count": 34,
-      "rate": 9.9
+      "rate": 9.6
     },
     "Rockshard Club": {
       "count": 33,
-      "rate": 9.6
+      "rate": 9.3
     },
     "Book of Stone (Pg 2)": {
       "count": 32,
-      "rate": 9.3
+      "rate": 9
     },
     "Granite Cape": {
       "count": 29,
-      "rate": 8.4
+      "rate": 8.1
     },
     "Stony Egg": {
       "count": 5,
-      "rate": 1.5
+      "rate": 1.4
     }
   }
 }
