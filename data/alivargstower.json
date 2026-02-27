@@ -1,10 +1,10 @@
 {
   "dungeon": "Alivarg's Tower",
-  "totalDrops": 374,
+  "totalDrops": 376,
   "items": {
     "Willpower Crystal": {
       "count": 260,
-      "rate": 69.5
+      "rate": 69.1
     },
     "Jester Hat": {
       "count": 17,
@@ -46,15 +46,15 @@
       "count": 7,
       "rate": 1.9
     },
+    "Defense Crystal": {
+      "count": 3,
+      "rate": 0.8
+    },
     "Wizard Boots": {
       "count": 2,
       "rate": 0.5
     },
     "Cube Egg": {
-      "count": 1,
-      "rate": 0.3
-    },
-    "Defense Crystal": {
       "count": 1,
       "rate": 0.3
     }
